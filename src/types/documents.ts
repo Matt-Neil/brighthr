@@ -8,11 +8,9 @@ type Document = {
 
 export type File = Document & { path: string };
 
-type Folder = Document;
+export type Folder = Document;
 
-export type DocumentUnion = File | Folder;
-
-export type OpenedFolder = { parent: { id: string; name: string }; children: DocumentUnion[] };
+export type OpenedFolder = { parent: { id: string; name: string }; children: (File | Folder)[] };
 
 export type FileProps = { file: File };
 
