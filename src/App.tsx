@@ -2,11 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./styles/App.css";
 import File from "./components/File";
 import Folder from "./components/Folder";
-import {
-    DocumentUnion as DocumentUnionType,
-    File as FileType,
-    OpenedFolder as OpenedFolderType,
-} from "./types/documents";
+import { File as FileType, Folder as FolderType, OpenedFolder as OpenedFolderType } from "./types/documents";
 import { SortOption as SortOptionType } from "./types/sortOptions";
 
 // I've shaped the JSON data so that it would resemble the actual data received from requests
@@ -14,15 +10,15 @@ const App = () => {
     const [openedFolders, setOpenedFolders] = useState<OpenedFolderType[]>([]);
     const [sortOption, setSortOption] = useState<SortOptionType>({ type: "name", direction: "desc" });
     const [searchPhrase, setSearchPhrase] = useState<string>("");
-    const [searchResults, setSearchResults] = useState<DocumentUnionType[] | undefined>(undefined);
+    const [searchResults, setSearchResults] = useState<(FileType | FolderType)[] | undefined>(undefined);
 
-    const sortLogic = (a: DocumentUnionType, b: DocumentUnionType) => {
+    const sortLogic = (a: FileType | FolderType, b: FileType | FolderType) => {
         return (
-            ((a[sortOption.type as keyof DocumentUnionType] ?? "") <
-            (b[sortOption.type as keyof DocumentUnionType] ?? "")
+            ((a[sortOption.type as keyof (FileType | FolderType)] ?? "") <
+            (b[sortOption.type as keyof (FileType | FolderType)] ?? "")
                 ? -1
-                : (a[sortOption.type as keyof DocumentUnionType] ?? "") >
-                  (b[sortOption.type as keyof DocumentUnionType] ?? "")
+                : (a[sortOption.type as keyof (FileType | FolderType)] ?? "") >
+                  (b[sortOption.type as keyof (FileType | FolderType)] ?? "")
                 ? 1
                 : 0) * (sortOption.direction === "desc" ? -1 : 1)
         );
@@ -39,7 +35,10 @@ const App = () => {
 
                 const data = {
                     parent: { id: "documents", name: "Documents" },
-                    children: (await response.json()).sort(function (a: DocumentUnionType, b: DocumentUnionType) {
+                    children: (await response.json()).sort(function (
+                        a: FileType | FolderType,
+                        b: FileType | FolderType
+                    ) {
                         return sortLogic(a, b);
                     }),
                 };
@@ -57,7 +56,7 @@ const App = () => {
         const sortedOpenedFolders = openedFolders.map((folder) => {
             return {
                 parent: { id: folder.parent.id, name: folder.parent.name },
-                children: folder.children.sort(function (a: DocumentUnionType, b: DocumentUnionType) {
+                children: folder.children.sort(function (a: FileType | FolderType, b: FileType | FolderType) {
                     return sortLogic(a, b);
                 }),
             };
@@ -66,7 +65,10 @@ const App = () => {
         setOpenedFolders(sortedOpenedFolders);
 
         if (searchResults) {
-            const sortedSearchResults = searchResults.sort(function (a: DocumentUnionType, b: DocumentUnionType) {
+            const sortedSearchResults = searchResults.sort(function (
+                a: FileType | FolderType,
+                b: FileType | FolderType
+            ) {
                 return sortLogic(a, b);
             });
 
@@ -84,7 +86,7 @@ const App = () => {
 
             const data = {
                 parent: { id: id, name: name },
-                children: (await response.json()).sort(function (a: DocumentUnionType, b: DocumentUnionType) {
+                children: (await response.json()).sort(function (a: FileType | FolderType, b: FileType | FolderType) {
                     return sortLogic(a, b);
                 }),
             };
@@ -121,7 +123,7 @@ const App = () => {
                 throw new Error("Data undefined");
             }
 
-            const data = (await response.json()).sort(function (a: DocumentUnionType, b: DocumentUnionType) {
+            const data = (await response.json()).sort(function (a: FileType | FolderType, b: FileType | FolderType) {
                 return sortLogic(a, b);
             });
 
