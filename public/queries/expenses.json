@@ -1,0 +1,25 @@
+[
+    {
+        "id": "expenses-claim-form",
+        "type": "doc",
+        "name": "Expenses claim form",
+        "dateAdded": "2017-05-02",
+        "size": "2 MB",
+        "path": "/documents/expenses"
+    },
+    {
+        "id": "fuel-allowances",
+        "type": "doc",
+        "name": "Fuel allowances",
+        "dateAdded": "2017-05-03",
+        "size": "3 MB",
+        "path": "/documents/expenses"
+    },
+    {
+        "id": "training-types",
+        "type": "folder",
+        "name": "Training types",
+        "dateAdded": "2016-12-06",
+        "size": "2 MB"
+    }
+]

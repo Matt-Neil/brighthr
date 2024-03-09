@@ -1,0 +1,33 @@
+.folder {
+    position: relative;
+    display: grid;
+    grid-template-columns: 225px 75px 125px;
+    gap: 16px;
+    border: 1px black solid;
+    border-radius: 4px;
+    font-size: 12px;
+    background: none;
+}
+
+.openedFolder {
+    color: #FFFFFF;
+    background-color: #464747;
+}
+
+.folderName {
+    font-weight: 600;
+    margin-inline-start: 8px;
+}
+
+.fileAdded {
+    margin-inline-end: 8px;
+}
+
+.folderButton {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: none;
+    cursor: pointer;
+}

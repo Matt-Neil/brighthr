@@ -1,0 +1,26 @@
+[
+    {
+        "id": "christmas-party",
+        "type": "doc",
+        "name": "Christmas party",
+        "dateAdded": "2017-12-01",
+        "size": "2 MB",
+        "path": "/documents/misc"
+    },
+    {
+        "id": "christmas-party",
+        "type": "pdf",
+        "name": "Christmas party",
+        "dateAdded": "2017-11-27",
+        "size": "1 MB",
+        "path": "/documents/misc"
+    },
+    {
+        "id": "welcome-to-the-company",
+        "type": "mov",
+        "name": "Welcome to the company!",
+        "dateAdded": "2015-04-24",
+        "size": "2 MB",
+        "path": "/documents/misc"
+    }
+]

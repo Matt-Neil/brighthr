@@ -1,0 +1,47 @@
+[
+    {
+        "id": "employee-handbook",
+        "type": "pdf",
+        "name": "Employee Handbook",
+        "dateAdded": "2017-01-06",
+        "size": "1 MB",
+        "path": "/documents"
+    },
+    {
+        "id": "public-holiday-policy",
+        "type": "pdf",
+        "name": "Public Holiday policy",
+        "dateAdded": "2016-12-06",
+        "size": "2 MB",
+        "path": "/documents"
+    },
+    {
+        "id": "expenses",
+        "type": "folder",
+        "name": "Expenses",
+        "dateAdded": "2016-12-06",
+        "size": "5 MB"
+    },
+    {
+        "id": "cost-centres",
+        "type": "csv",
+        "name": "Cost centres",
+        "dateAdded": "2016-08-12",
+        "size": "1 MB",
+        "path": "/documents"
+    },
+    {
+        "id": "misc",
+        "type": "folder",
+        "name": "Misc",
+        "dateAdded": "2016-12-06",
+        "size": "3 MB"
+    },
+    {
+        "id": "holidays",
+        "type": "folder",
+        "name": "Holidays",
+        "dateAdded": "2016-12-06",
+        "size": "0 MB"
+    }
+]
